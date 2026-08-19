@@ -1,3 +1,7 @@
+// Set DNS resolution to prefer IPv4 (fixes IPv6 ENETUNREACH on platforms like Render)
+const dns = require('dns');
+dns.setDefaultResultOrder('ipv4first');
+
 // Load environment variables
 require('dotenv').config();
 
