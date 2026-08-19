@@ -8,6 +8,7 @@ const sendEmail = async (options) => {
     host: process.env.SMTP_HOST || 'smtp.mailtrap.io',
     port: smtpPort,
     secure: smtpPort === 465, // true for port 465, false for other ports (like 587 or 2525)
+    family: 4, // Force IPv4 instead of IPv6 to prevent ENETUNREACH on cloud environments like Render
     tls: {
       rejectUnauthorized: false, // Bypass self-signed certificate validation errors
     },
